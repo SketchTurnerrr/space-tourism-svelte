@@ -146,6 +146,14 @@ select {
     max-width: 80rem;
 }
 
+.mt-2 {
+    margin-top: 2rem;
+}
+
+.mt-1 {
+    margin-top: 1rem;
+}
+
 .sr-only {
   position: absolute; 
   width: 1px;
@@ -163,6 +171,7 @@ select {
 .bg-dark { background-color: hsl( var(--clr-dark) );}
 .bg-accent { background-color: hsl( var(--clr-light) );}
 .bg-white { background-color: hsl( var(--clr-white) );}
+.bg-transparent { background-color: transparent;}
 
 .text-dark { color: hsl( var(--clr-dark) );}
 .text-accent { color: hsl( var(--clr-light) );}

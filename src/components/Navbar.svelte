@@ -1,17 +1,35 @@
 <script>
+  import { onMount } from 'svelte';
+
   let navOpen = false;
 
   function handleNav() {
     navOpen = !navOpen;
   }
+
+  const mediaQueryHandler = (e) => {
+    if (!e.matches) {
+      navOpen = false;
+    }
+  };
+
+  // Close sidenav when above 767 width
+  onMount(() => {
+    const mediaListener = window.matchMedia('(max-width: 767px)');
+
+    mediaListener.addListener(mediaQueryHandler);
+  });
 </script>
 
 <div class="navbar flex">
   <div>
     <img src="./assets/shared/logo.svg" alt="space tourism logo" class="logo" />
   </div>
+
+  <!-- Desktop Navbar -->
   <div class="navbar--desktop">
-    <ul>
+    <ul class="desktop-navbar">
+      <div />
       <li class="active">
         <a
           class="ff-sans-cond uppercase text-white letter-spacing-2"
@@ -45,6 +63,8 @@
     <div class="bar3" />
   </button>
 </div>
+
+<!-- Side Navbar -->
 <div class="flex sidenav" class:open={navOpen}>
   <nav class="sidenav-inner">
     <ul class="primary-navigation underline-indicators">
@@ -81,8 +101,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2rem;
-    max-height: 7rem;
+    padding-inline: 1rem;
   }
 
   .navbar--desktop {
@@ -114,7 +133,7 @@
     right: 0;
     background-color: hsl(var(--clr-dark) / 0.95);
     /* backdrop-filter: blur(30px);  To see this working use chrome */
-    overflow-x: hidden; /* Disable horizontal scroll */
+    overflow-x: hidden;
     padding-top: 130px;
     transition: 0.5s;
   }
@@ -174,20 +193,26 @@
     padding: 0;
   }
 
-  @media (min-width: 45rem) {
+  @media (min-width: 55rem) {
     .navbar button {
       display: none;
     }
 
     .navbar--desktop {
       display: flex;
+      width: 45rem;
+      justify-content: center;
+    }
+
+    .navbar--desktop ul {
+      padding: 1rem;
     }
 
     .navbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 3rem;
+      /* padding: 5rem 0 3rem 3rem; */
     }
 
     .navbar ul {
@@ -208,9 +233,20 @@
       margin-right: 0.5em;
     }
 
-    .navbar > div {
+    .navbar > div:nth-child(2) {
       background: hsl(var(--clr-white) / 0.1);
       backdrop-filter: blur(30px);
+    }
+  }
+
+  @media (min-width: 75rem) {
+    .desktop-navbar div {
+      position: absolute;
+      top: 50%;
+      left: -50%;
+      width: clamp(25rem, 5vw, 45rem);
+      height: 1px;
+      background-color: gray;
     }
   }
 </style>

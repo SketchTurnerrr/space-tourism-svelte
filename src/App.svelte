@@ -1,11 +1,13 @@
 <script>
   import DesignSystem from './components/DesignSystem.svelte';
+  import Destination from './components/Destination.svelte';
   import Home from './components/Home.svelte';
   import Navbar from './components/Navbar.svelte';
 </script>
 
 <main>
-  <Home />
+  <!-- <Home /> -->
+  <Destination />
   <!-- <DesignSystem /> -->
 </main>
 

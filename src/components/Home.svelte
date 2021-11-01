@@ -34,6 +34,7 @@
     background-image: url(/assets/home/background-home-mobile.jpg);
     background-size: cover;
     background-position: bottom center;
+    grid-template-rows: 3rem;
   }
 
   .grid-container {
@@ -55,7 +56,6 @@
     .home {
       background-position: center center;
       background-image: url(/assets/home/background-home-tablet.jpg);
-      grid-template-rows: 3rem;
     }
   }
 
