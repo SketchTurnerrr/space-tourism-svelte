@@ -1,14 +1,11 @@
 <script>
   import DesignSystem from './components/DesignSystem.svelte';
-  import Destination from './components/Destination.svelte';
-  import Home from './components/Home.svelte';
-  import Navbar from './components/Navbar.svelte';
+  import Router from 'svelte-spa-router';
+  import routes from './routes';
 </script>
 
 <main>
-  <!-- <Home /> -->
-  <Destination />
-  <!-- <DesignSystem /> -->
+  <Router {routes} />
 </main>
 
 <style>
