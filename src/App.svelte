@@ -1,5 +1,4 @@
 <script>
-  import DesignSystem from './components/DesignSystem.svelte';
   import Router from 'svelte-spa-router';
   import routes from './routes';
 </script>
